@@ -1,0 +1,5 @@
+github.com/anaregdesign/papaya v0.0.2 h1:T3ghFQ0woTIn7GMb8FUtJLd+/Eus2Cc9Ch5y8qrlW2c=
+github.com/anaregdesign/papaya v0.0.2/go.mod h1:vmu1ypaKEUAM5COG6TBrJs5NXBOEkhfKcXckhc7VOA4=
+golang.org/x/exp v0.0.0-20230425010034-47ecfdc1ba53 h1:5llv2sWeaMSnA3w2kS57ouQQ4pudlXrR0dCgw51QK9o=
+golang.org/x/exp v0.0.0-20230425010034-47ecfdc1ba53/go.mod h1:V1LtkGg67GoY2N1AnLN78QLrzxkLyJw7RJb1gzOOz9w=
+golang.org/x/sync v0.1.0 h1:wsuoTGHzEhffawBOhz5CYhcrV4IdKZbEyZjBMuTp12o=
