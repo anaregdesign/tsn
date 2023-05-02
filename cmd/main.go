@@ -3,14 +3,14 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"github.com/anaregdesign/tsn/repository"
+	"github.com/anaregdesign/tsn/repository/graph"
 	"strings"
 	"time"
 )
 
 func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	c := repository.NewTokenGraphRepository(ctx, 10)
+	c := graph.NewTokenGraphRepository(ctx, 10)
 
 	paragraph := `
 And so even though we face the difficulties of today and tomorrow, I still have a dream. It is a dream deeply rooted in the American dream.
