@@ -1,4 +1,4 @@
-package tsn
+package repository
 
 import (
 	"context"
@@ -7,21 +7,21 @@ import (
 	"time"
 )
 
-type TokenCache struct {
+type TokenGraphRepository struct {
 	window int
 	dic    *nlp.Dictionary
 	c      *graph.GraphCache[int, string]
 }
 
-func NewTokenCache(ctx context.Context, window int) *TokenCache {
-	return &TokenCache{
+func NewTokenGraphRepository(ctx context.Context, window int) *TokenGraphRepository {
+	return &TokenGraphRepository{
 		window: window,
 		dic:    nlp.NewDictionary(),
 		c:      graph.NewGraphCache[int, string](ctx, 30*time.Minute),
 	}
 }
 
-func (c *TokenCache) Add(words []string) {
+func (c *TokenGraphRepository) Put(words []string) {
 	cbow := c.dic.Words2CBOW(words, c.window)
 	for _, w := range cbow {
 		c.c.AddVertex(w.Source, c.dic.ID2Word[w.Source])
@@ -32,6 +32,6 @@ func (c *TokenCache) Add(words []string) {
 	}
 }
 
-func (c *TokenCache) Neighbor(word string, step int, k int) *graph.Graph[int, string] {
+func (c *TokenGraphRepository) Get(word string, step int, k int) *graph.Graph[int, string] {
 	return c.c.Neighbor(c.dic.Word2ID[word], step, k, true)
 }
