@@ -32,6 +32,6 @@ func (c *TokenCache) Add(words []string) {
 	}
 }
 
-func (c *TokenCache) NeighborTFiDFLog(word string, step int, top int) *graph.Graph[int, string] {
-	return c.c.NeighborTFiDFLog(c.dic.Word2ID[word], step, top)
+func (c *TokenCache) Neighbor(word string, step int, k int) *graph.Graph[int, string] {
+	return c.c.Neighbor(c.dic.Word2ID[word], step, k, true)
 }
